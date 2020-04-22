@@ -14,7 +14,7 @@ public class person
 		direction="north";
 	}
 	
-	private void onItem(map currentMap) 
+	private void onItem(map currentMap, int newR, int newC) 
 	{
 		/*
 		 * this is where all the probability stuff for damage and all would go.
@@ -26,17 +26,35 @@ public class person
 		//buy the item
 		if (probability==0||probability==1||probability==2)
 		{
-			currentMap.removeItem(r, c, false);
+			currentMap.removeItem(newR, newC, false);
 		}
 		//damage the item
 		else if (probability==3)
 		{
-			currentMap.removeItem(r, c, true);
+			currentMap.removeItem(newR, newC, true);
 		}
 		//ignore the item and move on
 		else
 		{
 			//nothing
+		}
+	}
+	
+	public void moveForward(map currentMap)
+	{
+		int newR=r;
+		int newC=c;
+		if (direction.equals("north"))
+		{
+			newR--;
+			System.out.println("changed newR to "+newR+" with newC at "+newC);
+		}
+		
+		if (currentMap.pathAhead(newR, newC)||currentMap.onCashRegistar(newR, newC))
+		{
+			r=newR;
+			c=newC;
+			System.out.println("successfully moved.");
 		}
 	}
 	
@@ -124,6 +142,7 @@ public class person
 			{
 				r=newR;
 				c=newC;
+				System.out.println("successfully moved.");
 			}
 			else if (currentMap.isWall(newR, newC))
 			{
@@ -132,7 +151,7 @@ public class person
 			//would go to an item cell
 			else
 			{
-				onItem(currentMap);
+				onItem(currentMap, newR, newC);
 			}
 		}
 		//stay

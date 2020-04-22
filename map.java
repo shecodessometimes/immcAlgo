@@ -99,7 +99,7 @@ public class map
 
 	public boolean onCashRegistar(int r, int c) 
 	{
-		if (map[r][c].toString()=="cash register")
+		if (map[r][c].getItemId()=="cash register")
 		{
 			return true;
 		}
@@ -108,7 +108,7 @@ public class map
 	
 	public boolean pathAhead(int r, int c)
 	{
-		if (map[r][c].toString()=="-")
+		if (map[r][c].getItemId().equals("-"))
 		{
 			return true;
 		}
@@ -117,7 +117,7 @@ public class map
 	
 	public boolean isWall(int r, int c) 
 	{
-		if (map[r][c].toString()=="wall")
+		if (map[r][c].getItemId()=="wall")
 		{
 			return true;
 		}

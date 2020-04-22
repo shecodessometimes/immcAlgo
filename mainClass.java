@@ -12,7 +12,7 @@ public class mainClass
 		
 		currentMap.printMap();
 		//each counter is approximately 1-2 minutes
-		for (int i = 0; i<3; i++)
+		for (int i = 0; i<120; i++)
 		{
 			System.out.println("");
 			System.out.println("Start of iteration "+i);
@@ -22,13 +22,17 @@ public class mainClass
 				currentMap.removeItem(p.getRow(), p.getCol());
 				//perform action
 				p.randomAction(currentMap);
-				//delete person if finished
-				if (currentMap.onCashRegistar(p.getRow(), p.getCol()))
-				{
-					people.remove(p);
-				}
 				//put person back in
 				currentMap.addItem(p.getRow(), p.getCol());
+			}
+			
+			for (int j = 0; j<people.size(); j++)
+			{
+				//delete person if finished
+				if (currentMap.onCashRegistar(people.get(i).getRow(), people.get(i).getCol()))
+				{
+					people.remove(j);
+				}
 			}
 			newPeople(people, currentMap);
 			System.out.println("");
@@ -36,7 +40,7 @@ public class mainClass
 			currentMap.printMap();
 		}
 	}
-
+	
 	private static void newPeople(ArrayList<person> people, map currentMap) 
 	{
 		int number = (int)(Math.random()*5);

@@ -36,6 +36,11 @@ public class item
 		System.out.println("Removed Item. New total for "+itemId+" is: "+numberOfItems);
 	}
 	
+	public String getItemId()
+	{
+		return itemId;
+	}
+	
 	public String toString()
 	{
 		if (itemId.contentEquals("cash register"))
