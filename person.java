@@ -47,14 +47,12 @@ public class person
 		if (direction.equals("north"))
 		{
 			newR--;
-			System.out.println("changed newR to "+newR+" with newC at "+newC);
 		}
 		
 		if (currentMap.pathAhead(newR, newC)||currentMap.onCashRegistar(newR, newC))
 		{
 			r=newR;
 			c=newC;
-			System.out.println("successfully moved.");
 		}
 	}
 	
@@ -142,7 +140,6 @@ public class person
 			{
 				r=newR;
 				c=newC;
-				System.out.println("successfully moved.");
 			}
 			else if (currentMap.isWall(newR, newC))
 			{

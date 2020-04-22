@@ -29,7 +29,7 @@ public class mainClass
 			for (int j = 0; j<people.size(); j++)
 			{
 				//delete person if finished
-				if (currentMap.onCashRegistar(people.get(i).getRow(), people.get(i).getCol()))
+				if (currentMap.onCashRegistar(people.get(j).getRow(), people.get(j).getCol()))
 				{
 					people.remove(j);
 				}
@@ -39,6 +39,11 @@ public class mainClass
 			System.out.println("After iteration "+i);
 			currentMap.printMap();
 		}
+		
+		System.out.println("");
+		System.out.println("Final Count: ");
+		System.out.println("Items bought: "+currentMap.getNumBought());
+		System.out.println("Items damaged: "+currentMap.getNumStolen());
 	}
 	
 	private static void newPeople(ArrayList<person> people, map currentMap) 

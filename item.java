@@ -23,7 +23,6 @@ public class item
 	public void addItem()
 	{
 		numberOfItems++;
-		System.out.println("Added Item. New total for "+itemId+" is: "+numberOfItems);
 	}
 	
 	public void removeItem()
@@ -31,9 +30,7 @@ public class item
 		if (numberOfItems!=0)
 		{
 			numberOfItems--;
-			System.out.println(itemId+" zero items reached.");
 		}
-		System.out.println("Removed Item. New total for "+itemId+" is: "+numberOfItems);
 	}
 	
 	public String getItemId()
